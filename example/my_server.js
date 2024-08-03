@@ -198,8 +198,38 @@ line.on('line', (input) => {
       console.log('Opening TV Launcher');
       androidRemote.sendAppLink("com.google.android.tvlauncher");
     } else if (char === 'POWER') {
-        console.log('Power');
-        androidRemote.sendKey(RemoteKeyCode.KEYCODE_POWER, RemoteDirection.SHORT)
+      console.log('Power');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_POWER, RemoteDirection.SHORT)
+    } else if (char === '0') {
+      console.log('Keycode 0');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_0, RemoteDirection.SHORT)
+    } else if (char === '1') {
+      console.log('Keycode 1');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_1, RemoteDirection.SHORT)
+    } else if (char === '2') {
+      console.log('Keycode 2');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_2, RemoteDirection.SHORT)
+    } else if (char === '3') {
+      console.log('Keycode 3');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_3, RemoteDirection.SHORT)
+    } else if (char === '4') {
+      console.log('Keycode 4');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_4, RemoteDirection.SHORT)
+    } else if (char === '5') {
+      console.log('Keycode 5');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_5, RemoteDirection.SHORT)
+    } else if (char === '6') {
+      console.log('Keycode 6');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_6, RemoteDirection.SHORT)
+    } else if (char === '7') {
+      console.log('Keycode 7');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_7, RemoteDirection.SHORT)
+    } else if (char === '8') {
+      console.log('Keycode 8');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_8, RemoteDirection.SHORT)
+    } else if (char === '9') {
+      console.log('Keycode 9');
+      androidRemote.sendKey(RemoteKeyCode.KEYCODE_9, RemoteDirection.SHORT)
     } else {
       console.log('Unrecognized input');
     }
