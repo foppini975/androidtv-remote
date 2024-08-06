@@ -1,0 +1,65 @@
+.remote {
+    max-width: 300px;
+    margin: 10px auto;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 30px;
+}
+.btn {
+    width: 50px;
+    height: 50px;
+    margin: 0px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 20%; /* This makes the buttons circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-keypad {
+    background-color: grey;
+    border-color: grey;
+}
+.btn-power {
+    /* width: 100%; */
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-mute {
+    /* width: 100%; */
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+.btn-mute img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.btn-home {
+    /* width: 100%; */
+    background-color: lightslategray;
+    border-color: lightslategray;
+}
+.btn-home img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.btn-system {
+    background-color: lightslategray;
+    border-color: lightslategray;
+}
+.btn-direction {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+.btn-enter {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-up-down {
+    background-color: #4828a7;
+    color: white;
+    border-color: #4828a7;
+}

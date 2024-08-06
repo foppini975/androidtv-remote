@@ -5,78 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remote Control Keyboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .remote {
-            max-width: 300px;
-            margin: 20px auto;
-            background-color: #f0f0f0;
-            border-radius: 15px;
-            padding: 20px;
-        }
-        .btn {
-            width: 60px;
-            height: 60px;
-            margin: 5px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        .btn-power {
-            width: 100%;
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-        .btn-mute {
-            width: 100%;
-            background-color: #ffc107;
-            border-color: #ffc107;
-        }
-        .btn-direction {
-            background-color: #17a2b8;
-            border-color: #17a2b8;
-        }
-        .btn-enter {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
-    </style>
+    <link rel="stylesheet" href="remote.css">
 </head>
+<script src="keycodes.js"></script>
 <body>
     <div class="container">
         <div class="remote">
             <div class="row mb-3">
-                <div class="col-12">
-                    <button class="btn btn-power">POWER</button>
-                </div>
+                <div class="col-4"><button class="btn btn-power" onclick="this.code=KEYCODE_POWER;">PWR</button></div>
+                <div class="col-4"><button class="btn btn-mute" onclick="this.code=KEYCODE_MUTE;"><img src="./icons/mute.png" alt="Mute"></button></div>
+                <div class="col-4"><button class="btn btn-home" onclick="this.code=KEYCODE_HOME;"><img src="./icons/home.png" alt="Home"></button></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-secondary">1</button></div>
-                <div class="col-4"><button class="btn btn-secondary">2</button></div>
-                <div class="col-4"><button class="btn btn-secondary">3</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_1;">1</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_2;">2</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_3;">3</button></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-secondary">4</button></div>
-                <div class="col-4"><button class="btn btn-secondary">5</button></div>
-                <div class="col-4"><button class="btn btn-secondary">6</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_4;">4</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_5;">5</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_6;">6</button></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-secondary">7</button></div>
-                <div class="col-4"><button class="btn btn-secondary">8</button></div>
-                <div class="col-4"><button class="btn btn-secondary">9</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_7;">7</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_8;">8</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_9;">9</button></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_CHANNEL_UP;">P+</button></div>
+                <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_0;">0</button></div>
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_VOLUME_UP;">V+</button></div>
             </div>
             <div class="row mb-3">
                 <div class="col-4"></div>
-                <div class="col-4"><button class="btn btn-secondary">0</button></div>
+                <div class="col-4"></div>
                 <div class="col-4"></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"></div>
-                <div class="col-4"><button class="btn btn-direction">▲</button></div>
-                <div class="col-4"></div>
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_CHANNEL_DOWN;">P-</button></div>
+                <div class="col-4"><button class="btn btn-direction" onclick="this.code=KEYCODE_DPAD_UP;">▲</button></div>
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_VOLUME_DOWN;">V-</button></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-direction">◀</button></div>
-                <div class="col-4"><button class="btn btn-enter">OK</button></div>
-                <div class="col-4"><button class="btn btn-direction">▶</button></div>
+                <div class="col-4"><button class="btn btn-direction" onclick="this.code=KEYCODE_DPAD_LEFT;">◀</button></div>
+                <div class="col-4"><button class="btn btn-enter" onclick="this.code=KEYCODE_ENTER;">OK</button></div>
+                <div class="col-4"><button class="btn btn-direction" onclick="this.code=KEYCODE_DPAD_RIGHT;">▶</button></div>
             </div>
             <div class="row mb-3">
                 <div class="col-4"></div>
@@ -85,34 +58,13 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-mute">MUTE</button>
+                    <button class="btn btn-mute" onclick="this.code=KEYCODE_MUTE;"><img src="./icons/mute.png" alt="Mute"></button>
                 </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Command code mapping
-        const commandCodes = {
-            '0': '7',
-            '1': '8',
-            '2': '9',
-            '3': '10',
-            '4': '11',
-            '5': '12',
-            '6': '13',
-            '7': '14',
-            '8': '15',
-            '9': '16',
-            'UP': '19',
-            'DOWN': '20',
-            'LEFT': '21',
-            'RIGHT': '22',
-            'OK': '23',
-            'MUTE': '91',
-            'POWER': '26'
-        };
-
         // Function to send API request
         function sendCommand(commandCode) {
             fetch('http://192.168.1.10:3000/api/string', {
@@ -130,14 +82,8 @@
         // Add click event listeners to all buttons
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function() {
-                let commandCode;
-                if (this.textContent.length === 1) {
-                    // For numeric buttons
-                    commandCode = commandCodes[this.textContent];
-                } else {
-                    // For other buttons
-                    commandCode = commandCodes[this.textContent.trim().toUpperCase()];
-                }
+                let commandCode = this.code
+                console.log("Pressed button code: " + commandCode);
                 if (commandCode) {
                     sendCommand(commandCode);
                 }
