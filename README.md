@@ -19,42 +19,50 @@ After first succeeded pairing, you can reuse generated certs with `getCertificat
 ```js
 let host = "192.168.1.12";
 let options = {
-    pairing_port : 6467,
-    remote_port : 6466,
-    name : 'androidtv-remote',
-    cert: {},
-}
+  pairing_port: 6467,
+  remote_port: 6466,
+  name: "androidtv-remote",
+  cert: {},
+};
 
-let androidRemote = new AndroidRemote(host, options)
+let androidRemote = new AndroidRemote(host, options);
 
-androidRemote.on('secret', () => {
-    line.question("Code : ", async (code) => {
-        androidRemote.sendCode(code);
-    });
+androidRemote.on("secret", () => {
+  line.question("Code : ", async (code) => {
+    androidRemote.sendCode(code);
+  });
 });
 
-androidRemote.on('powered', (powered) => {
-    console.debug("Powered : " + powered)
+androidRemote.on("powered", (powered) => {
+  console.debug("Powered : " + powered);
 });
 
-androidRemote.on('volume', (volume) => {
-    console.debug("Volume : " + volume.level + '/' + volume.maximum + " | Muted : " + volume.muted);
+androidRemote.on("volume", (volume) => {
+  console.debug(
+    "Volume : " +
+      volume.level +
+      "/" +
+      volume.maximum +
+      " | Muted : " +
+      volume.muted
+  );
 });
 
-androidRemote.on('current_app', (current_app) => {
-    console.debug("Current App : " + current_app);
+androidRemote.on("current_app", (current_app) => {
+  console.debug("Current App : " + current_app);
 });
 
-androidRemote.on('ready', async () => {
-    let cert = androidRemote.getCertificate();
+androidRemote.on("ready", async () => {
+  let cert = androidRemote.getCertificate();
 
-    androidRemote.sendKey(RemoteKeyCode.MUTE, RemoteDirection.SHORT)
+  androidRemote.sendKey(RemoteKeyCode.MUTE, RemoteDirection.SHORT);
 
-    androidRemote.sendAppLink("https://www.disneyplus.com");
+  androidRemote.sendAppLink("https://www.disneyplus.com");
 });
 
 let started = await androidRemote.start();
 ```
+
 # Events
 
 ### `Event: secret`
@@ -80,25 +88,33 @@ Emitted when androidtv has a problem : by example when you send a wrong app_link
 # Commands
 
 ### `Command: sendCode(code)`
+
 - `code` : You need to pass the shown code on the TV when asked
 
 ### `Command: sendKey(KeyCode, Direction)`
+
 - `KeyCode` : Any key of https://developer.android.com/reference/android/view/KeyEvent?hl=fr
-- `Direction` : 
-  * `START_LONG` : Start long push
-  * `END_LONG` : Stop long push
-  * `SHORT` : Simple push
+- `Direction` :
+  - `START_LONG` : Start long push
+  - `END_LONG` : Stop long push
+  - `SHORT` : Simple push
 
 ### `Command : sendAppLink(app_link)`
+
 - `app_link` : You can find them in some Android apps by seeking 'android:host' in Android-Manifest
-  * You can use [jadx](https://github.com/skylot/jadx) to decompile the Android app and read Android-Manifest
-  * Example : "https://www.netflix.com/title.*"
+  - You can use [jadx](https://github.com/skylot/jadx) to decompile the Android app and read Android-Manifest
+  - Example : "https://www.netflix.com/title.*"
 
 # Others
 
-* If you need to decrypt some new messages from android TV, pass an Hexa form of buffer here : https://protogen.marcgravell.com/decode
-* You can take a look at my other package for homebridge that use this current one: [homebridge-plugin-androidtv](https://github.com/louis49/homebridge-plugin-androidtv)
+- If you need to decrypt some new messages from android TV, pass an Hexa form of buffer here : https://protogen.marcgravell.com/decode
+- You can take a look at my other package for homebridge that use this current one: [homebridge-plugin-androidtv](https://github.com/louis49/homebridge-plugin-androidtv)
 
 # License
 
 MIT
+
+# Icon licenses
+
+Mute by CRUIZY GRAPHIC from <a href="https://thenounproject.com/browse/icons/term/mute/" target="_blank" title="Mute Icons">Noun Project</a> (CC BY 3.0)
+Home by Galaxicon from <a href="https://thenounproject.com/browse/icons/term/home/" target="_blank" title="Home Icons">Noun Project</a> (CC BY 3.0)
