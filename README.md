@@ -1,7 +1,7 @@
 # Installation
 
 ```
-npm install androidtv-remote
+npm install
 ```
 
 # Configuration
