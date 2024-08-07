@@ -47,7 +47,7 @@ app.get('*', (req, res) => {
 });
 
 // POST endpoint to receive a string
-app.post('/api/string', (req, res) => {
+app.post('/api/sendKey', (req, res) => {
   const inputString = req.body.input;
   
   if (!inputString) {
@@ -93,8 +93,8 @@ else {
     console.log("Certificate files not found");
 }
 
-let host = "192.168.1.25";
-let options = {
+const host = "192.168.1.25";
+const options = {
     pairing_port : 6467,
     remote_port : 6466,
     name : 'androidtv-remote',
@@ -184,7 +184,7 @@ line.on('line', (input) => {
         let command_code = parseInt(numericPart, 10);
         
         if (!isNaN(command_code)) {
-            console.log('Sending code ${command_code}');
+            console.log(`Sending code ${command_code}`);
             androidRemote.sendKey(command_code, RemoteDirection.SHORT)
         }
         else {

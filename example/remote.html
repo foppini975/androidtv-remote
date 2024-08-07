@@ -63,7 +63,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-mute" onclick="this.code=KEYCODE_MUTE;"><img src="./icons/mute.png" alt="Mute"></button>
+                    <button class="btn btn-input" onclick="this.code=KEYCODE_TV_INPUT;"><img src="./icons/input.png" alt="Input"></button>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
     <script>
         // Function to send API request
         function sendCommand(commandCode) {
-            fetch('http://192.168.1.10:3000/api/string', {
+            fetch('http://192.168.1.10:3000/api/sendKey', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
