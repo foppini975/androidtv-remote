@@ -25,6 +25,11 @@
     background-color: #dc3545;
     border-color: #dc3545;
 }
+.btn-power img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 .btn-mute {
     /* width: 100%; */
     background-color: #ffc107;
@@ -37,8 +42,8 @@
 }
 .btn-home {
     /* width: 100%; */
-    background-color: lightslategray;
-    border-color: lightslategray;
+    background-color: lightgreen;
+    border-color: lightgreen;
 }
 .btn-home img {
     max-width: 100%;
@@ -49,6 +54,11 @@
 .btn-system {
     background-color: lightslategray;
     border-color: lightslategray;
+}
+.btn-system img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 .btn-direction {
     background-color: #17a2b8;

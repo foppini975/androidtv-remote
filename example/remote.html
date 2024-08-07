@@ -12,7 +12,7 @@
     <div class="container">
         <div class="remote">
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-power" onclick="this.code=KEYCODE_POWER;">PWR</button></div>
+                <div class="col-4"><button class="btn btn-power" onclick="this.code=KEYCODE_POWER;"><img src="./icons/power.png" alt="Power"></button></div>
                 <div class="col-4"><button class="btn btn-mute" onclick="this.code=KEYCODE_MUTE;"><img src="./icons/mute.png" alt="Mute"></button></div>
                 <div class="col-4"><button class="btn btn-home" onclick="this.code=KEYCODE_HOME;"><img src="./icons/home.png" alt="Home"></button></div>
             </div>
@@ -32,14 +32,14 @@
                 <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_9;">9</button></div>
             </div>
             <div class="row mb-3">
-                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_CHANNEL_UP;">P+</button></div>
+                <div class="col-4"></div>
                 <div class="col-4"><button class="btn btn-keypad" onclick="this.code=KEYCODE_0;">0</button></div>
-                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_VOLUME_UP;">V+</button></div>
+                <div class="col-4"></div>
             </div>
             <div class="row mb-3">
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_CHANNEL_UP;">P+</button></div>
                 <div class="col-4"></div>
-                <div class="col-4"></div>
-                <div class="col-4"></div>
+                <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_VOLUME_UP;">V+</button></div>
             </div>
             <div class="row mb-3">
                 <div class="col-4"><button class="btn btn-up-down" onclick="this.code=KEYCODE_CHANNEL_DOWN;">P-</button></div>
@@ -53,7 +53,12 @@
             </div>
             <div class="row mb-3">
                 <div class="col-4"></div>
-                <div class="col-4"><button class="btn btn-direction">▼</button></div>
+                <div class="col-4"><button class="btn btn-direction" onclick="this.code=KEYCODE_DPAD_DOWN;">▼</button></div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4"><button class="btn btn-home" onclick="this.code=KEYCODE_BACK;"><img src="./icons/back.png" alt="Back"></button></div>
+                <div class="col-4"><button class="btn btn-direction" onclick="this.code=KEYCODE_BACH;">▼</button></div>
                 <div class="col-4"></div>
             </div>
             <div class="row">
