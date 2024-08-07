@@ -8,6 +8,8 @@ import Readline from "readline";
 import fs from 'fs/promises';
 
 import express from 'express';
+import { fileURLToPath } from 'url';
+import path from 'path';
 import pkg from 'body-parser';
 const { json } = pkg;
 
@@ -24,6 +26,25 @@ app.use((req, res, next) => {
 
 // Middleware to parse JSON bodies
 app.use(json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.get('*', (req, res) => {
+  const filePath = path.join(__dirname, req.url);
+  
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      if (err.code === 'ENOENT') {
+        // File not found
+        res.status(404).send(`File ${req.url} not found`);
+      } else {
+        // Other error
+        res.status(500).send('Internal server error');
+      }
+    }
+  });
+});
 
 // POST endpoint to receive a string
 app.post('/api/string', (req, res) => {
