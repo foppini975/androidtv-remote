@@ -75,6 +75,15 @@
     background-color: #17a2b8;
     border-color: #17a2b8;
 }
+.btn-media {
+    background-color: lightpink;
+    border-color: lightpink;
+}
+.btn-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
 .btn-enter {
     background-color: #28a745;
     border-color: #28a745;
