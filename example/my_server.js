@@ -58,12 +58,31 @@ app.post('/api/sendKey', (req, res) => {
   const command_code = parseInt(inputString, 10);
         
   if (!isNaN(command_code)) {
-      console.log('Sending code ${command_code}');
+      console.log(`Sending code ${command_code}`);
       androidRemote.sendKey(command_code, RemoteDirection.SHORT)
   }
   else {
     return res.status(400).json({ error: 'Command code must be numeric' });
   }
+
+  res.json({
+    result: "Success"
+  });
+
+});
+
+// POST endpoint to receive a string
+app.post('/api/sendLink', (req, res) => {
+  console.log(`SendLink API invoked`);
+  const inputString = req.body.input;
+  console.log(`Input string: ${inputString}`);
+  
+  if (!inputString) {
+    return res.status(400).json({ error: 'No input string provided' });
+  }
+
+  console.log(`Sending link ${inputString}`);
+  androidRemote.sendAppLink(inputString)
 
   res.json({
     result: "Success"
@@ -226,6 +245,12 @@ line.on('line', (input) => {
     } else if (char === 't') {
       console.log('Opening TV Launcher');
       androidRemote.sendAppLink("com.google.android.tvlauncher");
+    } else if (char === 'd') {
+      console.log('Opening dazn');
+      androidRemote.sendAppLink("https://www.dazn.com");
+    } else if (char === 'r') {
+      console.log('Opening raiplay');
+      androidRemote.sendAppLink("it.rainet.androidtv");
     } else if (char === 'POWER') {
       console.log('Power');
       androidRemote.sendKey(RemoteKeyCode.KEYCODE_POWER, RemoteDirection.SHORT)
@@ -260,7 +285,8 @@ line.on('line', (input) => {
       console.log('Keycode 9');
       androidRemote.sendKey(RemoteKeyCode.KEYCODE_9, RemoteDirection.SHORT)
     } else {
-      console.log('Unrecognized input');
+      console.log(`sending app link: ${char}`);
+      androidRemote.sendAppLink(char);
     }
 
     console.log("Enter command")

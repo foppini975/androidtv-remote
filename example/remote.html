@@ -73,7 +73,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="btn btn-input" onclick="this.code=KEYCODE_TV_INPUT;"><img src="./icons/input.png" alt="Input"></button>
+                    <button class="btn btn-link" onclick="this.link='https://open.dazn.com'"><img src="./icons/dazn.png" alt="Dazn"></button>
                 </div>
             </div>
         </div>
@@ -93,14 +93,34 @@
             .then(data => console.log('Success:', data))
             .catch((error) => console.error('Error:', error));
         }
+        // Function to send API request
+        function sendLink(commandLink) {
+            fetch('http://192.168.1.10:3000/api/sendLink', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: commandLink })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch((error) => console.error('Error:', error));
+        }
 
         // Add click event listeners to all buttons
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function() {
-                let commandCode = this.code
-                console.log("Pressed button code: " + commandCode);
+                let commandCode = this.code;
                 if (commandCode) {
+                    console.log("Pressed button code: " + commandCode);
                     sendCommand(commandCode);
+                }
+                else {
+                    let commandLink = this.link;
+                    if (commandLink) {
+                        console.log(`Requested link: ${commandLink}`);
+                        sendLink(commandLink);
+                        }
                 }
             });
         });
